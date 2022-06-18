@@ -39,14 +39,15 @@ class Inventory
         }
     }
 
-    public function search(Guitar $searchGuitar)
+    public function search(Guitar $searchGuitar): SplDoublyLinkedList
     {
+        $matchingGuitars = new SplDoublyLinkedList();
+
         for ($this->guitars->rewind(); $this->guitars->valid(); $this->guitars->next()) {
             $guitar = $this->guitars->current();
 
             //Validate bulider
-            $builder = $searchGuitar->getBuilder();
-            if (!is_null($builder) && ($builder !== "" && $builder !== $guitar->getBuilder())) {
+            if ($searchGuitar->getBuilder() !== $guitar->getBuilder()) {
                 continue;
             }
             // validate modal
@@ -55,28 +56,24 @@ class Inventory
                 continue;
             }
 
-
             // validate type
-            $type = $searchGuitar->getType();
-            if (!is_null($type) && ($type !== "" && $type !== $guitar->getType())) {
+            if ($searchGuitar->getType() !== $guitar->getType()) {
                 continue;
             }
 
             // validate backwood
-            $backwood = $searchGuitar->getBackWood();
-            if (!is_null($backwood) && ($backwood !== "" && $backwood !== $guitar->getBackWood())) {
+            if ($searchGuitar->getBackWood() !== $guitar->getBackWood()) {
                 continue;
             }
 
             // validate backwood
-            $topwood = $searchGuitar->getTopWood();
-            if (!is_null($topwood) && $topwood !== "" && $topwood !== $guitar->getTopWood()) {
+            if ($searchGuitar->getTopWood() !== $guitar->getTopWood()) {
                 continue;
             }
 
-            return $guitar;
+            $matchingGuitars->push($guitar);
         }
 
-        return null;
+        return $matchingGuitars;
     }
 }

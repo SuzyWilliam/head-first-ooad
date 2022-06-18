@@ -16,9 +16,12 @@ class FindGuitarTest
 
         $whatErinLikes = new Guitar("", 0, Builder::FENDER, "Stratpcastor", Type::ELECTRIC, Wood::ALDER, Wood::ALDER);
 
-        $guitar = $inventory->search($whatErinLikes);
-        if ($guitar) {
-            echo "Erin, you might like this {$guitar->getBuilder()} {$guitar->getModal()} {$guitar->getType()} guitar: {$guitar->getBackWood()} back and sides,\n {$guitar->getTopWood()} top.\nYou can have it for only $ {$guitar->getPrice()}!";
+        $guitars = $inventory->search($whatErinLikes);
+        if ($guitars) {
+            for ($guitars->rewind(); $guitars->valid(); $guitars->next()) {
+                $guitar = $guitars->current();
+                echo "Erin, you might like this {$guitar->getBuilder()} {$guitar->getModal()} {$guitar->getType()} guitar: {$guitar->getBackWood()}<br/> back and sides,<br/> {$guitar->getTopWood()} top.<br/> You can have it for only $ {$guitar->getPrice()}!<br/> ----------<br/>";
+            }
         } else {
             echo "Sorry, Erin, we have nothing for you.";
         }
@@ -29,6 +32,15 @@ class FindGuitarTest
         $inventory->addGuitar(
             "V95693",
             1499.95,
+            Builder::FENDER,
+            "Stratpcastor",
+            Type::ELECTRIC,
+            Wood::ALDER,
+            Wood::ALDER
+        );
+        $inventory->addGuitar(
+            "V9512",
+            1549.95,
             Builder::FENDER,
             "Stratpcastor",
             Type::ELECTRIC,
