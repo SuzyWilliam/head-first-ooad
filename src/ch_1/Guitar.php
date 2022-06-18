@@ -2,16 +2,20 @@
 
 namespace App\ch_1;
 
+use App\ch_1\Enums\Builder;
+use App\ch_1\Enums\Type;
+use App\ch_1\Enums\Wood;
+
 class Guitar
 {
     public function __construct(
         public string $serialNumber,
         public float $price,
-        public string $builder,
+        public Builder $builder,
         public string $modal,
-        public string $type,
-        public string $backwood,
-        public string $topwood
+        public Type $type,
+        public Wood $backwood,
+        public Wood $topwood
     ) {
         $this->serialNumber = $serialNumber;
         $this->price = $price;
@@ -43,7 +47,7 @@ class Guitar
      */
     public function getBuilder()
     {
-        return $this->builder;
+        return $this->builder->value;
     }
 
     /**
@@ -59,7 +63,7 @@ class Guitar
      */
     public function getType()
     {
-        return $this->type;
+        return $this->type->value;
     }
 
     /**
@@ -67,7 +71,7 @@ class Guitar
      */
     public function getBackWood()
     {
-        return $this->backwood;
+        return $this->backwood->value;
     }
 
     /**
@@ -75,6 +79,6 @@ class Guitar
      */
     public function getTopWood()
     {
-        return $this->topwood;
+        return $this->topwood->value;
     }
 }

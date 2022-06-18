@@ -2,6 +2,9 @@
 
 namespace App\ch_1;
 
+use App\ch_1\Enums\Builder;
+use App\ch_1\Enums\Type;
+use App\ch_1\Enums\Wood;
 use SplDoublyLinkedList;
 
 class Inventory
@@ -16,11 +19,11 @@ class Inventory
     public function addGuitar(
         string $serialNumber,
         float $price,
-        string $builder,
+        Builder $builder,
         string $modal,
-        string $type,
-        string $backwood,
-        string $topwood
+        Type $type,
+        Wood $backwood,
+        Wood $topwood
     ) {
         $guitar = new Guitar($serialNumber, $price, $builder, $modal, $type, $backwood, $topwood);
         $this->guitars->push($guitar);

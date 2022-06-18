@@ -2,6 +2,10 @@
 
 namespace App\ch_1;
 
+use App\ch_1\Enums\Builder;
+use App\ch_1\Enums\Type;
+use App\ch_1\Enums\Wood;
+
 class FindGuitarTest
 {
 
@@ -10,7 +14,7 @@ class FindGuitarTest
         $inventory = new Inventory();
         self::initializeInventory($inventory);
 
-        $whatErinLikes = new Guitar("", 0, "fender", "Stratpcastor", "electric", "Alder", "Alder");
+        $whatErinLikes = new Guitar("", 0, Builder::FENDER, "Stratpcastor", Type::ELECTRIC, Wood::ALDER, Wood::ALDER);
 
         $guitar = $inventory->search($whatErinLikes);
         if ($guitar) {
@@ -25,11 +29,11 @@ class FindGuitarTest
         $inventory->addGuitar(
             "V95693",
             1499.95,
-            "Fender",
+            Builder::FENDER,
             "Stratpcastor",
-            "electric",
-            "Alder",
-            "Alder"
+            Type::ELECTRIC,
+            Wood::ALDER,
+            Wood::ALDER
         );
     }
 }
