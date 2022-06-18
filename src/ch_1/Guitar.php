@@ -2,28 +2,16 @@
 
 namespace App\ch_1;
 
-use App\ch_1\Enums\Builder;
-use App\ch_1\Enums\Type;
-use App\ch_1\Enums\Wood;
-
 class Guitar
 {
     public function __construct(
         public string $serialNumber,
         public float $price,
-        public Builder $builder,
-        public string $modal,
-        public Type $type,
-        public Wood $backwood,
-        public Wood $topwood
+        public GuitarSpec $guitarSpec
     ) {
         $this->serialNumber = $serialNumber;
         $this->price = $price;
-        $this->builder = $builder;
-        $this->modal = $modal;
-        $this->type = $type;
-        $this->backwood = $backwood;
-        $this->topwood = $topwood;
+        $this->spec = $guitarSpec;
     }
 
     /**
@@ -43,42 +31,10 @@ class Guitar
     }
 
     /**
-     * Get the value of builder
+     * Get the value of guitarSpec
      */
-    public function getBuilder()
+    public function getSpec()
     {
-        return $this->builder->value;
-    }
-
-    /**
-     * Get the value of modal
-     */
-    public function getModal()
-    {
-        return $this->modal;
-    }
-
-    /**
-     * Get the value of type
-     */
-    public function getType()
-    {
-        return $this->type->value;
-    }
-
-    /**
-     * Get the value of backwood
-     */
-    public function getBackWood()
-    {
-        return $this->backwood->value;
-    }
-
-    /**
-     * Get the value of topwood
-     */
-    public function getTopWood()
-    {
-        return $this->topwood->value;
+        return $this->spec;
     }
 }
