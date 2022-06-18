@@ -2,10 +2,6 @@
 
 namespace App\ch_1;
 
-use App\ch_1\Enums\Builder;
-use App\ch_1\Enums\Type;
-use App\ch_1\Enums\Wood;
-
 class FindGuitarTest
 {
 
@@ -14,20 +10,11 @@ class FindGuitarTest
         $inventory = new Inventory();
         self::initializeInventory($inventory);
 
-        $searchSpec = new GuitarSpec( Builder::FENDER, "Stratpcastor", Type::ELECTRIC, Wood::ALDER, Wood::ALDER, 0);
+        $whatErinLikes = new Guitar("", 0, "fender", "Stratpcastor", "electric", "Alder", "Alder");
 
-        $guitars = $inventory->search($searchSpec);
-        if ($guitars) {
-            for ($guitars->rewind(); $guitars->valid(); $guitars->next()) {
-                $guitar = $guitars->current();
-                $guitarSpec = $guitar->getSpec();
-                echo "Erin, you might like this {$guitarSpec->getBuilder()} 
-                {$guitarSpec->getModal()} 
-                {$guitarSpec->getType()} guitar: 
-                {$guitarSpec->getBackWood()}<br/> back and sides,
-                <br/> {$guitarSpec->getTopWood()} top.
-                <br/> You can have it for only $ {$guitar->getPrice()}!<br/> ----------<br/>";
-            }
+        $guitar = $inventory->search($whatErinLikes);
+        if ($guitar) {
+            echo "Erin, you might like this {$guitar->getBuilder()} {$guitar->getModal()} {$guitar->getType()} guitar: {$guitar->getBackWood()} back and sides,\n {$guitar->getTopWood()} top.\nYou can have it for only $ {$guitar->getPrice()}!";
         } else {
             echo "Sorry, Erin, we have nothing for you.";
         }
@@ -38,22 +25,11 @@ class FindGuitarTest
         $inventory->addGuitar(
             "V95693",
             1499.95,
-            Builder::FENDER,
+            "Fender",
             "Stratpcastor",
-            Type::ELECTRIC,
-            Wood::ALDER,
-            Wood::ALDER,
-            0
-        );
-        $inventory->addGuitar(
-            "V9512",
-            1549.95,
-            Builder::FENDER,
-            "Stratpcastor",
-            Type::ELECTRIC,
-            Wood::ALDER,
-            Wood::ALDER,
-            0
+            "electric",
+            "Alder",
+            "Alder"
         );
     }
 }

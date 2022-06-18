@@ -2,9 +2,6 @@
 
 namespace App\ch_1;
 
-use App\ch_1\Enums\Builder;
-use App\ch_1\Enums\Type;
-use App\ch_1\Enums\Wood;
 use SplDoublyLinkedList;
 
 class Inventory
@@ -19,16 +16,13 @@ class Inventory
     public function addGuitar(
         string $serialNumber,
         float $price,
-        Builder $builder,
+        string $builder,
         string $modal,
-        Type $type,
-        Wood $backwood,
-        Wood $topwood,
-        int $numString
+        string $type,
+        string $backwood,
+        string $topwood
     ) {
-        $guitarSpec = new GuitarSpec($builder, $modal, $type, $backwood, $topwood, $numString);
-        $guitar = new Guitar($serialNumber, $price, $guitarSpec);
-        
+        $guitar = new Guitar($serialNumber, $price, $builder, $modal, $type, $backwood, $topwood);
         $this->guitars->push($guitar);
     }
 
@@ -42,18 +36,42 @@ class Inventory
         }
     }
 
-    public function search(GuitarSpec $searchGuitar): SplDoublyLinkedList
+    public function search(Guitar $searchGuitar)
     {
-        $matchingGuitars = new SplDoublyLinkedList();
-
         for ($this->guitars->rewind(); $this->guitars->valid(); $this->guitars->next()) {
             $guitar = $this->guitars->current();
 
-            if ($searchGuitar->matches($guitar->getSpec())) {
-                $matchingGuitars->push($guitar);
+            //Validate bulider
+            $builder = $searchGuitar->getBuilder();
+            if (!is_null($builder) && ($builder !== "" && $builder !== $guitar->getBuilder())) {
+                continue;
+            }
+            // validate modal
+            $modal = $searchGuitar->getModal();
+            if (!is_null($modal) && ($modal !== "" && $modal !== $guitar->getModal())) {
+                continue;
+            }
+
+
+            // validate type
+            $type = $searchGuitar->getType();
+            if (!is_null($type) && ($type !== "" && $type !== $guitar->getType())) {
+                continue;
+            }
+
+            // validate backwood
+            $backwood = $searchGuitar->getBackWood();
+            if (!is_null($backwood) && ($backwood !== "" && $backwood !== $guitar->getBackWood())) {
+                continue;
+            }
+
+            // validate backwood
+            $topwood = $searchGuitar->getTopWood();
+            if (!is_null($topwood) && $topwood !== "" && $topwood !== $guitar->getTopWood()) {
+                continue;
             }
         }
 
-        return $matchingGuitars;
+        return null;
     }
 }

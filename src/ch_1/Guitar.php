@@ -7,11 +7,19 @@ class Guitar
     public function __construct(
         public string $serialNumber,
         public float $price,
-        public GuitarSpec $guitarSpec
+        public string $builder,
+        public string $modal,
+        public string $type,
+        public string $backwood,
+        public string $topwood
     ) {
         $this->serialNumber = $serialNumber;
         $this->price = $price;
-        $this->spec = $guitarSpec;
+        $this->builder = $builder;
+        $this->modal = $modal;
+        $this->type = $type;
+        $this->backwood = $backwood;
+        $this->topwood = $topwood;
     }
 
     /**
@@ -31,10 +39,42 @@ class Guitar
     }
 
     /**
-     * Get the value of guitarSpec
+     * Get the value of builder
      */
-    public function getSpec()
+    public function getBuilder()
     {
-        return $this->spec;
+        return $this->builder;
+    }
+
+    /**
+     * Get the value of modal
+     */
+    public function getModal()
+    {
+        return $this->modal;
+    }
+
+    /**
+     * Get the value of type
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Get the value of backwood
+     */
+    public function getBackWood()
+    {
+        return $this->backwood;
+    }
+
+    /**
+     * Get the value of topwood
+     */
+    public function getTopWood()
+    {
+        return $this->topwood;
     }
 }
