@@ -10,7 +10,7 @@ class FindGuitarTest
         $inventory = new Inventory();
         self::initializeInventory($inventory);
 
-        $whatErinLikes = new Guitar("", 0, "fender", "Stratpcastpr", "electric", "Alder", "Alder");
+        $whatErinLikes = new Guitar("", 0, "fender", "Stratpcastor", "electric", "Alder", "Alder");
 
         $guitar = $inventory->search($whatErinLikes);
         if ($guitar) {
@@ -23,28 +23,10 @@ class FindGuitarTest
     public static function initializeInventory(Inventory $inventory)
     {
         $inventory->addGuitar(
-            "guitar-01",
-            1200,
-            "fender",
-            "Stratpcastpr",
-            "electric",
-            "Alder",
-            "Alder"
-        );
-        $inventory->addGuitar(
-            "guitar-02",
-            1250,
-            "fender",
-            "Stratpcastpr",
-            "electric",
-            "Alder",
-            "Alder"
-        );
-        $inventory->addGuitar(
-            "guitar-03",
-            1550,
-            "fender",
-            "Stratpcastpr",
+            "V95693",
+            1499.95,
+            "Fender",
+            "Stratpcastor",
             "electric",
             "Alder",
             "Alder"

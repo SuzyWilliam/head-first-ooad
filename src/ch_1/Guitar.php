@@ -65,7 +65,7 @@ class Guitar
     /**
      * Get the value of backwood
      */
-    public function getBackwood()
+    public function getBackWood()
     {
         return $this->backwood;
     }
@@ -73,7 +73,7 @@ class Guitar
     /**
      * Get the value of topwood
      */
-    public function getTopwood()
+    public function getTopWood()
     {
         return $this->topwood;
     }

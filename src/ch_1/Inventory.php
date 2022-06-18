@@ -42,29 +42,36 @@ class Inventory
             $guitar = $this->guitars->current();
 
             //Validate bulider
-            $builder = $searchGuitar->builder;
-            if (!$builder && $builder !== "" && $builder !== $guitar->builder)
+            $builder = $searchGuitar->getBuilder();
+            if (!is_null($builder) && ($builder !== "" && $builder !== $guitar->getBuilder())) {
                 continue;
-
+            }
             // validate modal
-            $modal = $searchGuitar->modal;
-            if (!$modal && $modal !== "" && $modal !== $guitar->modal)
+            $modal = $searchGuitar->getModal();
+            if (!is_null($modal) && ($modal !== "" && $modal !== $guitar->getModal())) {
                 continue;
+            }
+
 
             // validate type
-            $type = $searchGuitar->type;
-            if (!$type && $type !== "" && $type !== $guitar->type)
+            $type = $searchGuitar->getType();
+            if (!is_null($type) && ($type !== "" && $type !== $guitar->getType())) {
                 continue;
+            }
 
             // validate backwood
-            $backwood = $searchGuitar->backwood;
-            if (!$backwood && $backwood !== "" && $backwood !== $guitar->backwood)
+            $backwood = $searchGuitar->getBackWood();
+            if (!is_null($backwood) && ($backwood !== "" && $backwood !== $guitar->getBackWood())) {
                 continue;
-            
+            }
+
             // validate backwood
-            $topwood = $searchGuitar->topwood;
-            if (!$topwood && $topwood !== "" && $topwood !== $guitar->backwood)
+            $topwood = $searchGuitar->getTopWood();
+            if (!is_null($topwood) && $topwood !== "" && $topwood !== $guitar->getTopWood()) {
                 continue;
+            }
+
+            return $guitar;
         }
 
         return null;
