@@ -3,7 +3,7 @@ namespace App\ch_2;
 
 class DogDoor
 {
-    private boolean $open;
+    private bool $open;
 
     public function __constructor()
     {
