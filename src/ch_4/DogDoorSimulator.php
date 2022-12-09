@@ -1,5 +1,5 @@
 <?php
-namespace App\ch_2;
+namespace App\ch_4;
 
 class DogDoorSimulator
 {

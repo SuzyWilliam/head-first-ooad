@@ -9,7 +9,7 @@ class DogDoor
     {
         $this->open = false;
     }
-
+    
     public function isOpen()
     {
         return $this->open;

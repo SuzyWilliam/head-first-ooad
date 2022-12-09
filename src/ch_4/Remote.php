@@ -1,6 +1,6 @@
 <?php
 
-namespace App\ch_2;
+namespace App\ch_4;
 
 class Remote
 {
@@ -18,6 +18,6 @@ class Remote
             $this->door->close();
         } else {
             $this->door->open();
-        }        
+        }
     }
 }

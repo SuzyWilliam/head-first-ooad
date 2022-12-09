@@ -1,9 +1,11 @@
 <?php
-
-use App\ch_1\FindGuitarTest;
-
 require_once __DIR__."/vendor/autoload.php";
 
-$findGuitar = new FindGuitarTest();
+// use App\ch_1\FindGuitarTest;
+// $findGuitar = new FindGuitarTest();
+// $findGuitar->search();
 
-$findGuitar->search();
+use App\ch_2\DogDoorSimulator;
+$doorTest = new DogDoorSimulator();
+$doorTest->test();
+echo "Hello";
