@@ -10,6 +10,10 @@ require_once __DIR__."/vendor/autoload.php";
 // $doorTest->test();
 // echo "Hello";
 
-use App\ch_4\DogDoorSimulator;
-$doorTest = new DogDoorSimulator();
-$doorTest->test();
+// use App\ch_4\DogDoorSimulator;
+// $doorTest = new DogDoorSimulator();
+// $doorTest->test();
+
+use App\ch_5\FindGuitarTest;
+$findGuitar = new FindGuitarTest();
+$findGuitar->search();
