@@ -11,5 +11,7 @@
             "email": "suzy.william01@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "react/async": "^4"
+    }
 }
