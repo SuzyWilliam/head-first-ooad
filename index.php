@@ -14,6 +14,10 @@ require_once __DIR__."/vendor/autoload.php";
 // $doorTest = new DogDoorSimulator();
 // $doorTest->test();
 
-use App\ch_5\FindGuitarTest;
-$findGuitar = new FindGuitarTest();
+// use App\ch_5\FindGuitarTest;
+// $findGuitar = new FindGuitarTest();
+// $findGuitar->search();
+
+use App\ch_5_2\FindInstrumentalTest;
+$findGuitar = new FindInstrumentalTest();
 $findGuitar->search();
